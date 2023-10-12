@@ -15,10 +15,10 @@ class Auto_run:
     @staticmethod
     def enter(boy):
         boy.frame = 0
-        if boy.frame == 3:
-            boy.frame = 1
-        elif boy.frame == 2:
-            boy.frame = 0
+        if boy.action == 3:
+            boy.action = 1
+        elif boy.action == 2:
+            boy.action = 0
         print('autorun Enter')
         pass
 
@@ -29,10 +29,15 @@ class Auto_run:
     @staticmethod
     def do(boy):
         boy.frame = (boy.frame + 1) %8
-        if boy.frame == 1:
-            boy.x += boy.x
-        elif boy.frame == 0:
-            boy.x -= boy.x
+        if boy.action == 1:
+            boy.x = boy.x + 1
+        elif boy.action == 0:
+            boy.x = boy.x - 1
+        if boy.x > 800:
+            boy.action = 0
+        elif boy.x < 0 :
+            boy.action = 1
+
         print('autorun Do')
 
     @staticmethod
@@ -68,11 +73,19 @@ class StateMachine:
     def __init__(self, boy):
         self.boy = boy
         self.cur_state = Idle
-        self.transition = {
+        self.table = {
             Idle: {a_key_down: Auto_run},
-            Auto_run:{time_out: Idle}
+            Auto_run: {time_out: Idle}
         }
 
+    def handle_event(self, e):
+        for check_event, next_state in self.table[self.cur_state].items():
+            if check_event(e):
+                self.cur_state.exit(self.boy)
+                self.cur_state = next_state
+                self.cur_state.enter(self.boy)
+                return True
+        return False
 
     def start(self):
         self.cur_state.enter(self.boy)
@@ -100,6 +113,7 @@ class Boy:
         self.state_machine.update()
 
     def handle_event(self, event):
+        self.state_machine.handle_event(('INPUT', event))
         pass
 
     def draw(self):
