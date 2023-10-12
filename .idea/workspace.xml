@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a88089a1-8910-4e9c-bc7b-7d417164f540" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a88089a1-8910-4e9c-bc7b-7d417164f540" name="Changes" comment="auto_run 상태에서 5초후 Idle상태로 바뀜">
       <change beforePath="$PROJECT_DIR$/boy.py" beforeDir="false" afterPath="$PROJECT_DIR$/boy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697116251359</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="auto_run 상태에서 5초후 Idle상태로 바뀜">
+      <option name="closed" value="true" />
+      <created>1697116774176</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697116774176</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -105,6 +112,7 @@
     <MESSAGE value="a_key_down, time_out 함수 추가" />
     <MESSAGE value="a를 눌렀을때 Auto_run 구현완료" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="auto_run 상태에서 5초후 Idle상태로 바뀜" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto_run 상태에서 5초후 Idle상태로 바뀜" />
   </component>
 </project>

@@ -55,7 +55,10 @@ class Idle:
     @staticmethod
     def enter(boy):
         Boy.frame = 0
-        boy.action = 3
+        if boy.action == 0:
+            boy.action = 2
+        elif boy.action == 1:
+            boy.action = 3
         print('Idle Enter')
         pass
 
