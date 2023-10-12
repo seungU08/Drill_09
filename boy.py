@@ -1,14 +1,16 @@
 # 이것은 각 상태들을 객체로 구현한 것임.
 
-from pico2d import load_image
+from pico2d import load_image, get_time
 from sdl2 import SDL_KEYDOWN, SDLK_a
 
 
 def a_key_down(e):
     return e[0] == 'INPUT' and e[1].type == SDL_KEYDOWN and e[1].key == SDLK_a
 
+
 def time_out(e):
     return e[0] == 'TIME_OUT'
+
 
 class Auto_run:
 
@@ -19,6 +21,7 @@ class Auto_run:
             boy.action = 1
         elif boy.action == 2:
             boy.action = 0
+        boy.start_time = get_time()
         print('autorun Enter')
         pass
 
@@ -28,21 +31,23 @@ class Auto_run:
 
     @staticmethod
     def do(boy):
-        boy.frame = (boy.frame + 1) %8
+        boy.frame = (boy.frame + 1) % 8
         if boy.action == 1:
             boy.x = boy.x + 1
         elif boy.action == 0:
             boy.x = boy.x - 1
         if boy.x > 800:
             boy.action = 0
-        elif boy.x < 0 :
+        elif boy.x < 0:
             boy.action = 1
 
+        if get_time() - boy.start_time > 5 :
+            boy.state_machine.handle_event(('TIME_OUT' , 0))
         print('autorun Do')
 
     @staticmethod
     def draw(boy):
-        boy.image.clip_draw(boy.frame *100, boy.action*100, 100, 100, boy.x,boy.y)
+        boy.image.clip_draw(boy.frame * 100, boy.action * 100, 100, 100, boy.x, boy.y)
 
 
 class Idle:
@@ -60,13 +65,12 @@ class Idle:
 
     @staticmethod
     def do(boy):
-        boy.frame = (boy.frame + 1) %8
+        boy.frame = (boy.frame + 1) % 8
         print('Idle Do')
 
     @staticmethod
     def draw(boy):
-        boy.image.clip_draw(boy.frame *100, boy.action*100, 100, 100, boy.x,boy.y)
-
+        boy.image.clip_draw(boy.frame * 100, boy.action * 100, 100, 100, boy.x, boy.y)
 
 
 class StateMachine:
@@ -95,9 +99,6 @@ class StateMachine:
 
     def draw(self):
         self.cur_state.draw(self.boy)
-
-
-
 
 
 class Boy:
