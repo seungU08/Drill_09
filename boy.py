@@ -2,6 +2,34 @@
 
 from pico2d import load_image
 
+class Auto_run:
+
+    @staticmethod
+    def enter(boy):
+        boy.frame = 0
+        if boy.frame == 3:
+            boy.frame = 1
+        elif boy.frame == 2:
+            boy.frame = 0
+        print('autorun Enter')
+        pass
+
+    @staticmethod
+    def exit(boy):
+        print('autorun Exit')
+
+    @staticmethod
+    def do(boy):
+        boy.frame = (boy.frame + 1) %8
+        if boy.frame == 1:
+            boy.x += boy.x
+        elif boy.frame == 0:
+            boy.x -= boy.x
+        print('autorun Do')
+
+    @staticmethod
+    def draw(boy):
+        boy.image.clip_draw(boy.frame *100, boy.action*100, 100, 100, boy.x,boy.y)
 
 
 class Idle:
