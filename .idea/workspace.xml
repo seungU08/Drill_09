@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a88089a1-8910-4e9c-bc7b-7d417164f540" name="Changes" comment="auto_run 상태에서 5초후 Idle상태로 바뀜">
-      <change beforePath="$PROJECT_DIR$/boy.py" beforeDir="false" afterPath="$PROJECT_DIR$/boy.py" afterDir="false" />
+    <list default="true" id="a88089a1-8910-4e9c-bc7b-7d417164f540" name="Changes" comment="Run 구현, rutorun시 속도가 빨라지고 크기가 커짐">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +101,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697116774176</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Idle 상태로 바뀔때 서있는 방향 조절">
+      <option name="closed" value="true" />
+      <created>1697116971427</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697116971427</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Run 구현, rutorun시 속도가 빨라지고 크기가 커짐">
+      <option name="closed" value="true" />
+      <created>1697120173033</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697120173033</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -113,6 +129,8 @@
     <MESSAGE value="a를 눌렀을때 Auto_run 구현완료" />
     <MESSAGE value="." />
     <MESSAGE value="auto_run 상태에서 5초후 Idle상태로 바뀜" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto_run 상태에서 5초후 Idle상태로 바뀜" />
+    <MESSAGE value="Idle 상태로 바뀔때 서있는 방향 조절" />
+    <MESSAGE value="Run 구현, rutorun시 속도가 빨라지고 크기가 커짐" />
+    <option name="LAST_COMMIT_MESSAGE" value="Run 구현, rutorun시 속도가 빨라지고 크기가 커짐" />
   </component>
 </project>
