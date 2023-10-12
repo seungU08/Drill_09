@@ -1,6 +1,14 @@
 # 이것은 각 상태들을 객체로 구현한 것임.
 
 from pico2d import load_image
+from sdl2 import SDL_KEYDOWN, SDLK_a
+
+
+def a_key_down(e):
+    return e[0] == 'INPUT' and e[1].type == SDL_KEYDOWN and e[1].key == SDLK_a
+
+def time_out(e):
+    return e[0] == 'TIME_OUT'
 
 class Auto_run:
 
@@ -57,9 +65,13 @@ class Idle:
 
 
 class StateMachine:
-    def __init__(self,boy):
+    def __init__(self, boy):
         self.boy = boy
         self.cur_state = Idle
+        self.transition = {
+            Idle: {a_key_down: Auto_run},
+            Auto_run:{time_out: Idle}
+        }
 
 
     def start(self):
